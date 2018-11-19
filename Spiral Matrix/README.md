@@ -1,4 +1,4 @@
-# Iterate over Matrix
+# Spiral Matrix
 
 Company|Longgame
 ---|---
@@ -17,3 +17,6 @@ Matrix:
 7|8|9
 
 Result = [1,2,3,6,9,8,7,4,5]
+
+Link to LeetCode problem:
+https://leetcode.com/problems/spiral-matrix/
