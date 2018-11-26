@@ -20,6 +20,16 @@ def bracket_validator(str):
         return False
     return True
 
+def is_same_type_of_bracket(character, stack):
+    return (character == ')' and stack == '(') or (character == ']' and stack == '[') or (character == '}' and stack == '{')
+
+
+def is_opening_bracket(char):
+    return char in ['(', '[', '{']
+
+
+def is_closing_bracket(char):
+    return char in [')', ']', '}']
 
 # def bracket_validator_recursive(str):
 #     i = 0
@@ -44,16 +54,6 @@ def bracket_validator(str):
 #         if
 #     return result
 
-def is_same_type_of_bracket(character, stack):
-    return (character == ')' and stack == '(') or (character == ']' and stack == '[') or (character == '}' and stack == '{')
-
-
-def is_opening_bracket(char):
-    return char in ['(', '[', '{']
-
-
-def is_closing_bracket(char):
-    return char in [')', ']', '}']
 
 
 # print(bracket_validator('()[]{}'))
