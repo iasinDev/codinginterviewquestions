@@ -4,17 +4,9 @@ from collections import Counter
 
 def electionWinner(votes):
     number_of_voltes_per_candidate = Counter(votes)
-    
-    maximum_votes = 0
-    name_list = []
-    for k, v in number_of_voltes_per_candidate.items():
-        if v > maximum_votes:
-            maximum_votes = v
-            name_list.clear()
-        if v == maximum_votes:
-            name_list.append(k)
-    
-    return sorted(name_list,reverse=True)[0]
+    max_votes = max(number_of_voltes_per_candidate.items(),key = lambda item: item[1])[1]
+    max_votes_name_list = list(map(lambda item: item[0], filter(lambda item: item[1] == max_votes, number_of_voltes_per_candidate.items())))
+    return sorted(max_votes_name_list,reverse=True)[0]
 
 # print(electionWinner(['Alex','Michael','Harry', 'Harry'])=='Harry')
 # print(electionWinner(['Alex','Michael','Alex', 'Michael', 'Harry', 'Harry'])=='Alex')
