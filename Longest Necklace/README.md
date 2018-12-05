@@ -5,7 +5,9 @@ Company|TopTal
 Date| 10/12/2018
 Platform| Codility
 
-You have a lot of beads. Each bead has a number from 0 to N-1. You want to build a necklace. An array A is given containing for bead i the next bead in the necklace. For example
+You have a lot of beads. Each bead has a number from 0 to N-1. You want to build a necklace. An array A is given containing for bead i the next bead in the necklace. 
+
+For example, given A such that:
 
 ```
 A[0] = 5
@@ -17,5 +19,7 @@ A[5] = 6
 A[6] = 2
 ``` 
 
-In this case the function should return 4, because the longest necklase is the one containing four beads: numbers {0,5,6,2}
+the function should return 4, because the longest necklase is the one containing four beads: numbers {0,5,6,2}. Presented below are the untangeled necklaces.
+
+![Necklace](Necklace.png)
 
