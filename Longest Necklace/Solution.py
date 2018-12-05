@@ -5,20 +5,16 @@ def solution(A):
     max_length = 0
     visited = [False] * len(A)
     for i in range(0, len(A)):
-        max_length = max(max_length, test(A, i, visited, 0))
+        j = i
+        length = 0
+        while j < len(A) and not visited[j]:
+            visited[j] = True
+            length+=1
+            j = A[j]
+        max_length = max(max_length, length)
     return max_length
-
-def test(A,i,visited,length):
-    if visited[i]:
-        return length
-    else:
-        visited[i] = True
-        if A[i]>=len(A):
-            return length
-        else:
-            return test(A, A[i], visited, length+1)
 
 print(solution([5,4,0,3,1,6,2]) == 4)
 print(solution([]) == 0)
 print(solution([0]) == 1)
-print(solution([1]) == 0)
+print(solution([1]) == 1)
