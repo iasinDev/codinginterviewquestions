@@ -9,11 +9,11 @@ A colony of eight houses, represented as cell are arranged in a stright line. Ea
 
 Write an algorithm to output the state of the cells after the given number of days.
 
-####Input
+#### Input
 The input to the function/method consists of two arguments - 
 * _states_, a list of integers representing the current state of cell.
 * _days_, an integer representing the number of days.
 
-#####Output
+##### Output
 Return a list of integers representing the state of cells after the given number of days.
 
