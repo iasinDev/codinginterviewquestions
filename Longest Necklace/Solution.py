@@ -1,7 +1,6 @@
 # My solution does not give 100% correct results
-
+# I canot remember if necklaces can also be connected somehow
 def solution(A):
-    # write your code in Python 3.6
     max_length = 0
     visited = [False] * len(A)
     for i in range(0, len(A)):

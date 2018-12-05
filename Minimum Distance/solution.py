@@ -1,12 +1,12 @@
 # Python 2.7
-import Queue
+import queue
 import sys
 
 def minimumDistance(numRows, numColumns, area):
     # dijkstra algorithm on matrix
     visited_nodes = [[False for i in range(numColumns)] for j in range(numRows)]
-    shortest_distance_to_node = [[sys.maxint for i in range(numColumns)] for j in range(numRows)]
-    next_nodes = Queue.Queue()
+    shortest_distance_to_node = [[sys.maxsize for i in range(numColumns)] for j in range(numRows)]
+    next_nodes = queue.Queue()
     next_nodes.put([0,0])
     visited_nodes[0][0] = True
     shortest_distance_to_node[0][0] = 0

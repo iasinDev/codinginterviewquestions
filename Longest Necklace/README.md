@@ -23,3 +23,8 @@ the function should return 4, because the longest necklase is the one containing
 
 ![Necklace](Necklace.png)
 
+Write and **efficient** algorithm for the following assumptions:
+
+* N is an integer within the range [0..1,000,000,000];
+* the elements of A are all between 0 and N-1
+

@@ -17,13 +17,13 @@ Assumptions:
 * The truck must navigate around the areas without roads and cannot leave the area.
 * The accessible areas are represented as 1, areas with without roads are represented by 0 and the order destination is ... 
 
-#####Output
+#### Output
 Return an integer representing the total distance traversed to deliver the order else return -1
 
-#####Constraints
+#### Constraints
 _1 <= numRows, numColumns <= 1000_
 
-#####Example
+#### Example
 Input:
 _numRows_ = 3
 _numColumns_= 3
@@ -32,7 +32,7 @@ _area_ =
 [1, 0, 0], 
 [1, 9, 1]]
 
-######Output:
+#### Output:
 3
 
 Explanation:
