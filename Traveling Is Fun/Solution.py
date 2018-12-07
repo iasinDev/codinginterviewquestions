@@ -2,7 +2,7 @@ from collections import defaultdict
 def connectedCities(n, g, originCities, destinationCities):
     connectedness_matrix = [[0 for i in range(n+1)] for i in range(n+1)]
     for i in range(n+1):
-        for j in range(n+1):
+        for j in range(i+1,n+1):
             if i!=j and gcd(i, j) > g:    
                 connectedness_matrix[i][j] = 1
                 connectedness_matrix[j][i] = 1
@@ -37,9 +37,34 @@ def gcd(a,b):
     b = r
   return a
 
+def lcm(x, y):
+   lcm = (x*y)//gcd(x,y)
+   return lcm
+
+print(gcd(9,18))
+print(lcm(9,18))
 print(connectedCities(6,2,[1,2,3], [4,5,6]) == [0,0,1])
 print(connectedCities(6,0,[1,4,3,6], [3,6,2,5]) == [1,1,1,1])
 print(connectedCities(6,1,[1,2,4,6], [3,3,3,4]) == [0,1,1,1])
+
+def connectedCitiesFaster(n, g, originCities, destinationCities):
+    node_group = {}
+    group_count = {}
+    for i in range(n+1):
+        node_group[i] = i
+        group_count[i] = 0
+    for i in range(n+1):
+        for j in range(i+1,n+1):
+            if i!=j and node_group[i] != node_group[j] and gcd(i, j) > g:    
+                pass
+                
+
+    result_list = []
+    for i in range(len(originCities)):
+        result = node_group[originCities[i]] == node_group[destinationCities[i]]
+        result_list.append(result)
+
+    return result_list  
 
 # First version -> correct but too slow
 #     
@@ -133,3 +158,43 @@ print(connectedCities(6,1,[1,2,4,6], [3,3,3,4]) == [0,1,1,1])
 #         result_list.append(result)
 
 #     return result_list
+
+# Back to the first and slow solution
+# from collections import defaultdict
+# def connectedCities(n, g, originCities, destinationCities):
+#     connectedness_matrix = [[0 for i in range(n+1)] for i in range(n+1)]
+#     for i in range(n+1):
+#         for j in range(n+1):
+#             if i!=j and gcd(i, j) > g:    
+#                 connectedness_matrix[i][j] = 1
+#                 connectedness_matrix[j][i] = 1
+
+#     def bfs(a,b):
+#         queue=[]
+#         visited_nodes = [False] * (n+1)
+#         queue.append(a)
+#         while queue:
+#             node = queue.pop(0)
+#             if not visited_nodes[node]:
+#                 visited_nodes[node] = True
+#                 for i in range(n+1):
+#                     if connectedness_matrix[node][i] == 1 and not visited_nodes[i]:
+#                         queue.append(i)
+
+#             if node == b:
+#                 return 1
+#         return 0
+
+#     result_list = []
+#     for i in range(len(originCities)):
+#         result = bfs(originCities[i], destinationCities[i])
+#         result_list.append(result)
+
+#     return result_list    
+
+# def gcd(a,b):
+#   while b!=0:
+#     r = a % b
+#     a = b
+#     b = r
+#   return a
