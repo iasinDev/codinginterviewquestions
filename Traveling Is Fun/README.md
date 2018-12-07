@@ -5,7 +5,7 @@ Company| Ascend.io
 Date|Nov. 2018
 Platform|HackerRank
 
-Julia is planning a vacatioin and has a list of cities she wants to visit. She doesn't have a map of the area, but she does have some data that will help here determine whether there is a road connection all the cities she wants to visit. The data comes in the form of two arrays. Each of the first array's elements is an origin city. Each of the second array's is a destination. Tehre is also an integer value threshold. The can tell that any two cities are connected if the values at origin and destination share a common divisor greater than the threshold. Citites are indexed starting at _0_.
+Julia is planning a vacation and has a list of cities she wants to visit. She doesn't have a map of the area, but she does have some data that will help here determine whether there is a road connection all the cities she wants to visit. The data comes in the form of two arrays. Each of the first array's elements is an origin city. Each of the second array's is a destination. There is also an integer value threshold. She can tell that any two cities are connected if the values at origin and destination share a common divisor greater than the threshold. Citites are indexed starting at _0_.
 
 Each of the pairs, _originCities[0]_ and _destinationCities[0]_ for example, represents a route she wants to take. For each pair, determine whether there is a route between cities. The route does not have to be direct. See the explanation to Sample Case 1 relating to originCity equals _2_ or _4_ for examples.
 
@@ -137,7 +137,7 @@ Return _paths = [0,1,1,1]_ as the answer.
 
 ### Solution
 
-This is my second solution. The first one using a dijkstra for each pair was corret but too slow. Afterwards I noticed that dijkstra is too much. A simple bfs or dfs search is enough. If you then add all combinations of nodes form one bfs search to the connectedness_matrix, the performance might be ok.
+This is my second solution. The first one using a dijkstra for each pair was correct but too slow. Afterwards I noticed that dijkstra is too much. A simple bfs or dfs search is enough. If you then add all combinations of nodes form one bfs search to the connectedness_matrix, the performance might be ok.
 
 I didn't find the questions on HackerRank or LeetCode to validate my solution
 
