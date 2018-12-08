@@ -27,6 +27,7 @@ that, given an array A consisting of N integers representing height measurements
 Examples:
 
 1. Given array A = [9,4,2,10,7,8,8,1,9] the function should return 5, because period (1,5) is considered to be turbulence (A[1] > A[2] < A[3] > A[4] < A[5]). Note that period (1,6) is not turbulence, because A[5] = A[6].
+![Turbulence](Turbulence.png)
 
 2. Given array A = [4,8,12,16] the function should return 2.
 
@@ -38,7 +39,7 @@ Write an efficient algorithm for the following assumptions:
 * N is an integer within the range [1...100,000];
 * each element of array A is an integer within the range [1..1,000,000,000].
 
-# Comment
+### Comment
 I don't understand why the second array [4,8,12,16] is a turbulence which follows the definition of a turbulence
 * A[P] > A[P+1] < A[P+2] > ..., and so on, up to A[Q] or
 * A[P] < A[P+1] > A[P+2] < ..., and so on, up to A[Q] 
