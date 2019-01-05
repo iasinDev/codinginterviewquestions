@@ -1,31 +1,35 @@
 from collections import defaultdict
+
+class DSU(object):
+    def __init__(self, N):
+        self.par = list(range(N))
+        self.rnk = [0] * N
+
+    def find(self, x):
+        if self.par[x] != x:
+            self.par[x] = self.find(self.par[x])
+        return self.par[x]
+
+    def union(self, x, y):
+        xr, yr = self.find(x), self.find(y)
+        if self.rnk[xr] < self.rnk[yr]:
+            self.par[xr] = yr
+        elif self.rnk[xr] > self.rnk[yr]:
+            self.par[yr] = xr
+        else:
+            self.par[yr] = xr
+            self.rnk[xr] += 1
+
 def connectedCities(n, g, originCities, destinationCities):
-    connectedness_matrix = [[0 for i in range(n+1)] for i in range(n+1)]
-    for i in range(n+1):
+    dsu = DSU(n+1)
+    for i in range(1,n+1):
         for j in range(i+1,n+1):
             if i!=j and gcd(i, j) > g:    
-                connectedness_matrix[i][j] = 1
-                connectedness_matrix[j][i] = 1
-
-    def bfs(a,b):
-        queue=[]
-        visited_nodes = [False] * (n+1)
-        queue.append(a)
-        while queue:
-            node = queue.pop(0)
-            if not visited_nodes[node]:
-                visited_nodes[node] = True
-                for i in range(n+1):
-                    if connectedness_matrix[node][i] == 1 and not visited_nodes[i]:
-                        queue.append(i)
-
-            if node == b:
-                return 1
-        return 0
+                dsu.union(i,j)
 
     result_list = []
     for i in range(len(originCities)):
-        result = bfs(originCities[i], destinationCities[i])
+        result = 1 if dsu.find(originCities[i]) == dsu.find(destinationCities[i]) else 0
         result_list.append(result)
 
     return result_list    
@@ -37,76 +41,12 @@ def gcd(a,b):
     b = r
   return a
 
-def lcm(x, y):
-   lcm = (x*y)//gcd(x,y)
-   return lcm
 
-print(gcd(9,18))
-print(lcm(9,18))
+
 print(connectedCities(6,2,[1,2,3], [4,5,6]) == [0,0,1])
 print(connectedCities(6,0,[1,4,3,6], [3,6,2,5]) == [1,1,1,1])
 print(connectedCities(6,1,[1,2,4,6], [3,3,3,4]) == [0,1,1,1])
 
-def connectedCitiesFaster(n, g, originCities, destinationCities):
-    node_group = {}
-    group_count = {}
-    for i in range(n+1):
-        node_group[i] = i
-        group_count[i] = 0
-    for i in range(n+1):
-        for j in range(i+1,n+1):
-            if i!=j and node_group[i] != node_group[j] and gcd(i, j) > g:    
-                pass
-                
-
-    result_list = []
-    for i in range(len(originCities)):
-        result = node_group[originCities[i]] == node_group[destinationCities[i]]
-        result_list.append(result)
-
-    return result_list  
-
-# First version -> correct but too slow
-#     
-# def connectedCities(n, g, originCities, destinationCities):
-#     # Write your code here
-#     connected_nodes={}
-#     for i in range(len(originCities)):
-#         for j in range(len(destinationCities)):
-#             if gcd(originCities[i], destinationCities[j]) > g:    
-#                 connected_nodes[originCities[i]] = destinationCities[j]
-#                 connected_nodes[destinationCities[j]] = originCities[i]
-
-#     result_list = []
-#     for i in range(len(originCities)):
-#         result = dijkstra(connected_nodes, originCities[i], destinationCities[i])
-#         result_list.append(result)
-
-#     return result_list    
-    
-# def dijkstra(connected_nodes, a, b):
-#     visited_nodes = []
-#     queue=[]
-#     queue.append(a)
-#     while queue:
-#         node = queue.pop(0)
-#         if node not in visited_nodes:
-#             visited_nodes.append(node)
-#             for k,v in connected_nodes.items():
-#                 if k == node:
-#                     queue.append(v)
-#                 if v == node:
-#                     queue.append(k)
-
-#         if node == b:
-#             return 1
-#     return 0
-
-# def gcd(a, b):  
-#     if a == 0 : 
-#         return b  
-      
-#     return gcd(b%a, a)
 
 # Second trail
 #
