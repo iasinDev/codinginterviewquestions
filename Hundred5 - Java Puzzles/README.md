@@ -23,9 +23,9 @@ if ( a <= b && a >= b && a != b ) {
 }
 ```
 
-* yes
+* yes (correct answer)
 * yes, but only in Java 1.9
-* no, because it is mathematically impossible (correct answer)
+* no, because it is mathematically impossible 
 * no, because it cannot compile
 
 ![Question6](Question6.png)
@@ -58,8 +58,8 @@ SELECT * FROM a LEFT JOIN b ON a.id = b.id WHERE b.amount > 150;
 SELECT * FROM a LEFT JOIN b ON a.id = b.id AND b.amount > 150;
 ```
 
-* They return different results
-* They return the same result (correct answer)
+* They return different results (correct answer)
+* They return the same result 
 
 ![Question8](Question8.png)
 
